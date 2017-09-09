@@ -66,22 +66,22 @@
 				<form id="myForm">
 					<h2>Форма добавления фильма</h2>
 					<input type="text" name="newTitle" value='' placeholder=" Введите название фильма">
-					<input type="file" name="newImg" value='' >
+					<input type="file" name="newImg">
 					<select name='countryName' id="countryName" value=''>
 						<option selected disabled>Выберите страну</option>
-						<option value="irel">Ирландия</option>
-						<option value="usa">США</option>
-						<option value="norway">Норвегия</option>
-						<option value="gb">Великобритания</option>
-						<option value="germ">Германия</option>
-						<option value="rus">Россия</option>
+						<option rel="irel">Ирландия</option>
+						<option rel="usa">США</option>
+						<option rel="norway">Норвегия</option>
+						<option rel="gb">Великобритания</option>
+						<option rel="germ">Германия</option>
+						<option rel="rus">Россия</option>
 					</select>
 					<select name='genreName' id="genreName" value=''>
 						<option selected disabled>Выберите жанр фильма</option>
-						<option value="drama">Драма</option>
-						<option value="comedy">Комедия</option>
-						<option value="fantasy">Фэнтези</option>
-						<option value="thriller">Боевик</option>
+						<option rel="drama">Драма</option>
+						<option rel="comedy">Комедия</option>
+						<option rel="fantasy">Фэнтези</option>
+						<option rel="thriller">Боевик</option>
 					</select>
 					<textarea type="text" name="newDescription" placeholder="Введите описание фильма" /></textarea>
 					<input type="submit" id="addTab" name="addTab" value="Добавить">
@@ -309,7 +309,7 @@
 			});
 			
 // удаление карточки
-			$(".delete").click(function (e){
+			$(document).on('click',".delete",function (e){
 				$(this).parent("div").remove();
 				
 			});
@@ -326,27 +326,42 @@
 			var general = $('#general');
 			var temp = $('#card');
 			$('#addTab').click(function (e){
-				
-				    
+ 
 				e.preventDefault();
+
+				
 				var data = $('#myForm').serializeArray();
 				var values = {};
+
+				var file = $('#myForm').find('[type="file"]')[0].files[0];				
 				
 				$.each(data,function(){
 					values[this.name] = this.value;
 				});
 
 				var body = $(temp.html());
+				var option = $('#countryName option:selected').attr('rel');
 				body.addClass('all');
-				body.addClass(values.countryName);
-				body.addClass(values.genreName);
+				body.addClass(option);
+				// body.addClass(values.genreName);
 				body.find('h2').text(values.newTitle);
-				body.find('.open_popup').attr("src", values.newImg);
+
 				body.find('.country').text(values.countryName);
 				body.find('.genre').text(values.genreName);
 				body.find('.description').text(values.newDescription);
 
-				general.append(body);
+				var reader = new FileReader();
+				    reader.onload = function (e) {
+				      
+				        body.find('.open_popup').attr("src", e.target.result);
+				        general.append(body);
+				        
+				    };
+
+				    if(file) 
+				    reader.readAsDataURL(file);
+
+				
 			});
 
     });

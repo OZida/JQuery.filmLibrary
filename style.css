@@ -1,0 +1,229 @@
+
+	body {
+		background: url('img/bg-ironman3.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position-x: center;
+	}
+	#wrapper {
+		width: 1200px;
+		margin: 210px auto;
+	}
+	.left_content {
+		float: left;
+		width: 33%;
+		height: 1872px;
+		background-color: #585858;
+	}
+	#categories, #produced {
+		float: left;
+		padding: 15px;
+		text-align: left;
+		width: 42%;
+		margin-bottom: 30px;
+	}
+	.current,  .currentProduced {
+		width: 90%;
+		font-size: 18px;
+	}
+	.left_content h3 {
+		color: #e0dfdc;
+	}
+	.left_content a {
+		margin: 10px 0;
+		transition: all .5s;
+		cursor: pointer;
+		color: #e0dfdc;
+	}
+
+	.left_content a:hover {
+		color: red;
+	}
+	#button_all {
+		color: #e0dfdc;
+		padding: 8px;
+		background-color: #2b2b2b;
+		border: 2px solid #e0dfdc;
+		border-radius: 10px;
+		width: 90%;
+		font-size: 15px;
+	}
+	.current #button_all {
+		width: 90%;
+		font-size: 18px;
+	}
+	#button_all:hover {
+		color: red;
+		border: 2px solid red;
+	}
+	.animation_settings {
+		float: left;
+		margin: 10px 0 0 20px;
+	}
+	#animation_selection, #speed {
+		height: 25px;
+		margin: 10px;
+		border: 1px solid #ccc;
+		color: #e0dfdc;
+		background-color: #2b2b2b;
+	}
+	#createNewTab {
+		color: #e0dfdc;
+		padding: 8px;
+		margin: 20px 20px;
+		background-color: #2b2b2b;
+		border: 2px solid #e0dfdc;
+		border-radius: 10px;
+		width: 90%;
+		font-size: 15px;
+	}
+	#createNewTab:hover {
+		color: red;
+		border: 2px solid red;
+	}
+	
+	.right_content {
+		float: left;
+		width: 66%;
+	}
+	#general {
+		width: 99%;
+	}
+	.tab {
+        border: 1px solid #ccc;
+        margin-right: 2px;
+        background: #2b2b2b;
+        width: 49%;
+        height: 310px;
+        float: left;
+    }
+	.delete {
+		width: 20px;
+		height: 20px;
+		float: right;
+		margin: 0;
+		cursor: pointer;
+	}
+	.tab .open_popup {
+		height: 190px;
+		cursor: pointer;
+		float: left;
+		margin: 0 10px 10px 10px;	
+	}
+	.tab h2 {
+		color: #e0dfdc;
+		margin-left: 10px;
+	}
+	.tab p {
+		margin-bottom: 5px;
+		text-align: left;
+		font-size: 16px;
+		color: #e0dfdc;
+	}
+	.overlay {
+		background-color: rgba(0, 0, 0, 0.7);
+		bottom: 0;
+		cursor: default;
+		left: 0;
+		opacity: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		visibility: hidden;
+		z-index: 99999;
+		transition: opacity .5s;
+	}
+	.popup, .newTab {
+		background-color: #e0dfdc;
+		display: inline-block;
+		left: 50%;
+		opacity: 0;
+		padding: 15px;
+		width: 500px;
+		height: 500px;
+		position: fixed;
+		text-align: justify;
+		top: 50%;
+		visibility: hidden;
+		z-index: 999999;
+		transform: translate(-50%, -50%);
+		transition: opacity .5s, top .5s;
+		border-radius: 11px;
+	}
+	.popup .close_popup, .close_newTab {
+		width: 6px;
+		height: 17px;
+		position: absolute;
+		padding: 1px 9px 4px 9px;
+		top: -15px;
+		right: -15px;
+		cursor: pointer;
+		color: red;
+		background-color: #e0dfdc;
+		border: 1px solid #ccc;
+		border-radius: 50%;
+		text-align: center;
+		box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+	}
+	.popup .close_popup:hover, .close_newTab:hover {
+		background-color: #2b2b2b;
+		border: 1px solid #ccc;
+	}
+	
+	.popup .tab {
+		width: 450px;
+		height: 450px;
+		text-align: center;
+		border-radius: 12px;
+		margin: 25px 0 0 25px;
+		padding-right: 10px; 
+	}
+	.popup .tab .delete {
+		display: none;
+	}
+	.popup .tab .open_popup {
+		height: 300px;
+		cursor: auto;
+		float: left;
+		margin: 0 10px 10px 10px;	
+	}
+	.popup .tab h2, .newTab h2 {
+		color: #e0dfdc;
+		
+	}
+	.popup .tab p {
+		margin-bottom: 5px;
+		text-align: left;
+		font-size: 17px;
+		color: #e0dfdc;
+		font-family: 'tahoma', sans-serif;
+	}
+	.newTab {
+		z-index: 999991;
+	}
+	.newTab form {
+		background: #2b2b2b;
+		width: 450px;
+		height: 450px;
+		text-align: center;
+		border-radius: 12px;
+		margin: 25px 0 0 25px;
+	}
+	.newTab input, select, textarea {
+		height: 30px;
+		width: 95%;
+		background-color: #2b2b2b;
+		color: #e0dfdc;
+		margin-top: 20px;
+	}
+	.newTab textarea {
+		height: 100px;
+		font-size: 16px;
+	}
+	#addTab, #reset {
+		width: 45%;
+	}
+	
+
+	
+	

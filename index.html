@@ -8,364 +8,169 @@
 </head>
 <body>
 	<div id="wrapper">
-		<div class="left_content">
-			<div id="categories" class="all drama comedy fantasy thriller">
-			    <h3>Категории</h3>	
-			    <a rel="drama">Драма</a><br>
-			    <a rel="comedy">Комедия</a><br>
-			    <a rel="fantasy">Фэнтези</a><br>
-			    <a rel="thriller">Боевик</a><br><br>
-			    <a rel="all" id='button_all' class="current currentProduced">Все фильмы</a>
+		<div class="header">
+			<div class="slider">
+				<div class="slider_container">
+				<a class='slider_prev'></a>
+					<div class="horisontal">
+						<!-- 1 -->
+						<div class="horisontal_block">
+							<img rel='fantasy' src="img/obitelzlaposlednyaaglava.jpg" alt="">
+							<img rel='thriller' src="img/zvezdnyevoyny.jpg" alt="">
+							<img rel='drama' src="img/velikayastena.jpg" alt="">
+							<img rel='thriller' src="img/kredoubiycy.jpg" alt="">
+							<img rel='comedy' src="img/passazhiry.jpg" alt="">
+							<img rel='fantasy' src="img/pribytie.jpg" alt="">
+							<img rel='drama' src="img/chudonagudzone.jpg" alt="">
+						</div>
+						<div class="horisontal_block">	<!-- 2 -->
+							<img rel='drama' src="img/logan.jpg" alt="">
+							<img rel='comedy' src="img/zvezdnyevoyny.jpg" alt="">
+							<img rel='thriller' src="img/kredoubiycy.jpg" alt="">
+							<img rel='drama' src="img/posoobrazheniyamsovesti.jpg" alt="">
+							<img rel='comedy' src="img/passazhiry.jpg" alt="">
+							<img rel='thriller' src="img/doktorstrenzh.jpg" alt="">
+							<img rel='fantasy' src="img/shpionypososedstvu.jpg" alt="">
+						</div>
+						<div class="horisontal_block">	<!-- 3 -->
+							<img rel='comedy' src="img/passazhiry.jpg" alt="">
+							<img rel='fantasy' src="img/doktorstrenzh.jpg" alt="">
+							<img rel='comedy' src="img/shpionypososedstvu.jpg" alt="">
+							<img rel='drama' src="img/otryadsamoubiyc.jpg" alt="">
+							<img rel='comedy' src="img/bolshoydobryyvelikan.jpg" alt="">
+							<img rel='thriller' src="img/zachnishiki.jpg" alt="">
+							<img rel='fantasy' src="img/pitiegodrakon.jpg" alt="">
+						</div>
+						<div class="horisontal_block">	<!-- 4 -->
+							<img rel='comedy' src="img/bolshoydobryyvelikan.jpg" alt="">
+							<img rel='thriller' src="img/zachnishiki.jpg" alt="">
+							<img rel='comedy' src="img/pitiegodrakon.jpg" alt="">
+							<img rel='fantasy' src="img/dzheysonborn.jpg" alt="">
+							<img rel='comedy' src="img/nerv.jpg" alt="">
+							<img rel='thriller' src="img/bridzhitdzhons3.jpg" alt="">
+							<img rel='drama' src="img/prishelcy3vzyatiebastilii.jpg" alt="">
+						</div>
+						<div class="horisontal_block">	<!-- 5 -->
+							<img rel='comedy' src="img/nerv.jpg" alt="">
+							<img rel='fantasy' src="img/bridzhitdzhons3.jpg" alt="">
+							<img rel='comedy' src="img/prishelcy3vzyatiebastilii.jpg" alt="">
+							<img rel='drama' src="img/otmel.jpg" alt="">
+							<img rel='thriller' src="img/varkraft.jpg" alt="">
+							<img rel='comedy' src="img/engriberdsvkino.jpg" alt="">
+							<img rel='fantasy' src="img/dazdravstvuetzecar.jpg" alt="">
+						</div>	
+					</div>
+					<a class='slider_next'></a>
+					</div>
+					<div class="dot_container">
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+					</div>
+				</div>
+			</div>
+			<div class="left_content">
+				<div id="categories" class="all drama comedy fantasy thriller">
+				    <h3>Категории</h3>	
+				    <a rel="drama">Драма</a><br>
+				    <a rel="comedy">Комедия</a><br>
+				    <a rel="fantasy">Фэнтези</a><br>
+				    <a rel="thriller">Боевик</a><br><br>
+				    <a rel="all" id='button_all' class="current currentProduced">Все фильмы</a>
+			    </div>
+				<div id="produced" class="all irel usa norway gb germ ru">
+					<h3>Страна</h3>
+					<a rel="irel">Ирландия</a><br>
+				    <a rel="usa">США</a><br>
+				    <a rel="norway">Норвегия</a><br>
+				    <a rel="gb">Великобритания</a><br>
+				    <a rel="germ">Германия</a><br>
+				    <a rel="rus">Россия</a><br>
+				</div>
+				<div class="animation_settings">
+					<select id="animation_selection">
+						<option selected disabled>Выберите анимацию</option>
+						<option value="slide">затухнуть/проявить</option>
+						<option value="fade">развернуть/свернуть</option>
+						<option value="hide">скрыть/показать</option>
+					</select>
+					<select id="speed">
+						<option selected disabled>Выберите скорость</option>
+						<option value="slow">медленно</option>
+						<option value="normal">нормально</option>
+						<option value="fast">быстро</option>
+					</select>
+				</div>
+				<button id="createNewTab">Добавить новый фильм</button>
+				<button id="createNewSlide">Добавить новый слайд</button>
 		    </div>
-			<div id="produced" class="all irel usa norway gb germ ru">
-				<h3>Страна</h3>
-				<a rel="irel">Ирландия</a><br>
-			    <a rel="usa">США</a><br>
-			    <a rel="norway">Норвегия</a><br>
-			    <a rel="gb">Великобритания</a><br>
-			    <a rel="germ">Германия</a><br>
-			    <a rel="rus">Россия</a><br>
-			</div>
-			<div class="animation_settings">
-				<select id="animation_selection">
-					<option selected disabled>Выберите анимацию</option>
-					<option value="slide">затухнуть/проявить</option>
-					<option value="fade">развернуть/свернуть</option>
-					<option value="hide">скрыть/показать</option>
-				</select>
-				<select id="speed">
-					<option selected disabled>Выберите скорость</option>
-					<option value="slow">медленно</option>
-					<option value="normal">нормально</option>
-					<option value="fast">быстро</option>
-				</select>
-			</div>
-			<button id="createNewTab">Добавить новый фильм</button>
-	    </div>
-	    <div class="right_content">
-		    <div id="general">
-			</div>
-			
-			<template id="card">
-		        <div class="tab">
-		        	<img class='delete' src="img/krectik.png" title="Удалить элемент">
-			        <h2></h2>
-			        <img class="open_popup">
-			        <p class="country"></p>
-				    <p class="genre"></p>
-				    <p class="description"></p>
-		      	</div>
-		    </template>
+		    <div class="right_content">
+			    <div id="general">
+				</div>
 				
-		    <div class="overlay"></div>
-			<div class="popup">
-				<div class="close_popup">x</div>
-			</div>
-			<div class="newTab">
-				<div class="close_newTab">x</div>
-				<form id="myForm">
-					<h2>Форма добавления фильма</h2>
-					<input type="text" name="newTitle" value='' placeholder=" Введите название фильма">
-					<input type="file" name="newImg">
-					<select name='countryName' id="countryName" value=''>
-						<option selected disabled>Выберите страну</option>
-						<option rel="irel">Ирландия</option>
-						<option rel="usa">США</option>
-						<option rel="norway">Норвегия</option>
-						<option rel="gb">Великобритания</option>
-						<option rel="germ">Германия</option>
-						<option rel="rus">Россия</option>
-					</select>
-					<select name='genreName' id="genreName" value=''>
-						<option selected disabled>Выберите жанр фильма</option>
-						<option rel="drama">Драма</option>
-						<option rel="comedy">Комедия</option>
-						<option rel="fantasy">Фэнтези</option>
-						<option rel="thriller">Боевик</option>
-					</select>
-					<textarea type="text" name="newDescription" placeholder="Введите описание фильма" /></textarea>
-					<input type="submit" id="addTab" name="addTab" value="Добавить">
-					<input type="reset" id="reset" name="delete" value="Очистить">
-				</form>
-			</div>
-	    </div>
-	    
-	</div>    
-	<script type="text/javascript">
-
-
-		var general = $('#general');
-		var temp = $('#card');
-		var source = [
-		{
-
-			"classProduced": "irel",
-			"classCategories": "drama",
-			"title": "Моди",
-			"src": "img/modi.jpg",
-			"country": "Страна: Ирландия",
-			"genre": "Жанр: Драма",
-			"description": "Долгое время Моди жила со своим братом в доме, который достался ему по наследству от родителей. Но однажды Чарльз захотел продать своё имущество ради будущего бизнеса, а его сестра оказалась на улице."
-		},
-		{
-			"classProduced": "usa",
-			"classCategories": "comedy",
-			"title": "Обдолбанный в Бруклине",
-			"src": "img/obdolbannyyvbrukline.jpg",
-			"country": "Страна: США",
-			"genre": "Жанр: Комедия",
-			"description": "Дэвид обычный парень из Нью-Йорка, мечтающий стать писателем, но вынужденный работать в офисе на должности консультанта. В свободное время он любит посещать вечеринки, встречаться с друзьями, пить и принимать лёгкие наркотики."
-		},
-		{
-			"classProduced": "usa",
-			"classCategories": "fantasy",
-			"title": "Северянин",
-			"src": "img/severyanin.jpg",
-			"country": "Страна: США",
-			"genre": "Жанр: Фэнтези",
-			"description": "В далёком будущем человечество практически перестало существовать и в своём развитии вернулось на тысячи лет назад. В 2961 году одно из последних племён находится на грани вымирания, а природа продолжает брать своё, уничтожая людей."
-		},
-		{
-			"classProduced": "norway",
-			"classCategories": "thriller",
-			"title": "Биркебейнеры",
-			"src": "img/birkebeynery.jpg",
-			"country": "Страна: Норвегия",
-			"genre": "Жанр: Боевик",
-			"description": "Норвегия, 1204 год. Баглеры при поддержке Дании начинают восстание и даже захватывают власть в некоторых городах. Они собираются уничтожить всех последователей короля и захватить трон."
-		},
-		{
-			"classProduced": "usa",
-			"classCategories": "thriller",
-			"title": "Ценный груз",
-			"src": "img/cenyygruz.jpg",
-			"country": "Страна: США",
-			"genre": "Жанр: Боевик",
-			"description": "Джек великолепно умеет проворачивать любые криминальные сделки и получать с этого немалую выгоду. Он один из лучших грабителей, хороший стратег и настоящий лидер."
-		},
-		{
-			"classProduced": "gb",
-			"classCategories": "thriller",
-			"title": "6 дней",
-			"src": "img/6dney.jpg",
-			"country": "Страна: Великобритания",
-			"genre": "Жанр: Боевик",
-			"description": "Лучшая команда специального назначения получила приказ ворваться в посольство и уничтожить всех преступников, сделав при этом всё возможное, чтобы сохранить жизни заложникам."
-		},
-		{
-			"classProduced": "gb",
-			"classCategories": "comedy",
-			"title": "Гиппопотам",
-			"src": "img/gippopotam.jpg",
-			"country": "Страна: Великобритания",
-			"genre": "Жанр: Комедия",
-			"description": "Некогда талантливый поэт Тэд Уоллес уже давно ничего не пишет, а лишь прозябает свою жизнь. Он превратился в разочаровавшегося в жизни дебошира, который не выходит из дома без бутылки виски."
-		},
-		{
-			"classProduced": "germ",
-			"classCategories": "comedy",
-			"title": "Безбашенный Ник",
-			"src": "img/bezbashenyynik.jpg",
-			"country": "Страна: Германия",
-			"genre": "Жанр: Комедия",
-			"description": "Отважного и совершенно безбашенного полицейского Ника Чиллера отстраняют от службы после очередной его глупой выходки. Сам герой хоть и не доволен таким решением руководства, но всё же пытается найти в своём незапланированном отпуске положительные стороны."
-		},
-		{
-			"classProduced": "germ",
-			"classCategories": "fantasy",
-			"title": "Ловушка для привидения",
-			"src": "img/lovushkadlyaprivedeniya.jpg",
-			"country": "Страна: Германия",
-			"genre": "Жанр: Фэнтези",
-			"description": "До последнего времени жизнь не самого храброго одиннадцатилетнего мальчика по имени Том была ничем не примечательна, но всё изменило после того, как он переехал в новый дом."
-		},
-		{
-			"classProduced": "germ",
-			"classCategories": "comedy",
-			"title": "Путь к Элладе",
-			"src": "img/putkellade.jpg",
-			"country": "Страна: Германия",
-			"genre": "Жанр: Комедия",
-			"description": "Паладики – тихий и очень живописный греческий остров. На нём нет большого количества туристов и шикарных отелей, но при этом есть красивейшая природа, большие горы, прекрасное море и чистый пляж."
-		},
-		{
-			"classProduced": "rus",
-			"classCategories": "drama",
-			"title": "Милый Ханс, дорогой Петр",
-			"src": "img/milyyhansdorogoypetr.jpg",
-			"country": "Страна: Россия",
-			"genre": "Жанр: Драма",
-			"description": "Незадолго до начала Великой Отечественной войны немецкие инженеры начали трудиться на одном из советских заводов над созданием уникального оптического стекла."
-		},
-		{
-			"classProduced": "rus",
-			"classCategories": "fantasy",
-			"title": "Форт Росс: В поисках приключений",
-			"src": "img/fortross.jpg",
-			"country": "Страна: Россия",
-			"genre": "Жанр: Фэнтези",
-			"description": "Двое молодых российских журналистов по заданию редакции едут в далекий Сан-Франциско для того, чтобы сделать сюжет о Форт Россе, русском укреплении XIX века в Америке."
-		}];
-// наполнение карточек
-		function filler(general, temp , s) {
-			
-			s.forEach(function(item) {
-
-            		var body = $(temp.html());
-            		
-        			body.addClass('all');
-        			body.addClass(item.classProduced);
-        			body.addClass(item.classCategories);
-        			body.find('h2').text(item.title);
-                    body.find('.open_popup').attr('src', item.src);
-                    body.find('.country').text(item.country);
-                    body.find('.genre').text(item.genre);
-                    body.find('.description').text(item.description);
-                    general.append(body);
-                });
-            }
-        filler(general, temp, source);
+				<template id="card">
+			        <div class="tab">
+			        	<img class='delete' src="img/krectik.png" title="Удалить элемент">
+				        <h2></h2>
+				        <img class="open_popup">
+				        <p class="country"></p>
+					    <p class="genre"></p>
+					    <p class="description"></p>
+			      	</div>
+			    </template>
 					
-        $(function() {
-// анимация скрытия
-			var anim;
-        	var elem;
-        	function hideElements (elem, anim, speed) {
-        		var speed = $('#speed').prop('value');
-        		var anim = $('#animation_selection').prop('value');
-        		if (anim =='slide'){
-        			$(elem).slideUp(speed);
-        		}
-        		else if (anim =='hide'){
-        			$(elem).hide(speed);
-        		}
-        		else {
-        			$(elem).fadeOut(speed);
-        		}	
-        	}
-// анимация отображения
-        	function showElements (elem, anim, speed) {
-        		
-        		var speed = $('#speed').prop('value');
-        		var anim = $('#animation_selection').prop('value');
-        		if (anim =='slide'){
-        			$(elem).slideDown(speed);
-        		}	
-        		else if (anim =='hide'){
-		          	$(elem).show(speed);
-		        }
-        		else {
-        			$(elem).fadeIn(speed);
-		        }
-        	}	
-		        	
-// фильтр
-          	$("#categories a, #produced a").click(function(){
- 	
-                var newSelection = "";
-
-	            $("#categories a").removeClass("current");
-	            $("#categories a").removeClass("currentProduced");
-	          	$(this).addClass("current");
-	          		
-	          	$("#produced a").removeClass("currentProduced");
-	          	$("#produced a").removeClass("current");
-	          	$(this).addClass("currentProduced");
-
-	          	newSelection = '.' + $(this).attr("rel");
-
-	          	
-	          	$("#general div").filter(function( index ) {
-		          	return $( this ).attr( "class" ) === "current currentProduced" || "currentProduced";
-		        });
-		        elem = $("#general div").not(newSelection);
-		        hideElements(elem, anim, speed);
-
-					if ($( this ).attr( "class" ) == "current currentProduced") {
-		          		newSelection += '.' + $(this).attr("rel");
-		          		elem = newSelection;
-		          		showElements (elem, anim, speed);
-		          	}
-		          	if ($(this).attr("rel") == "all") {
-		          		elem = $("#general div");
-			        	showElements (elem, anim, speed);
-			        }
-
-	    	});	
-// открытие/закрытие попапа
-          	var content_popup;
-
-			$('img.open_popup').click(function (e){
-				$(content_popup).remove();
-				if( $(this).is("img.open_popup") ){
-					content_popup = $(this).parent('div').clone();
-					$('.popup').prepend(content_popup);
-				}
-				$('.popup, .overlay').css({'opacity': 1, 'visibility': 'visible'});
-				e.preventDefault();
-			});
-			$('.popup .close_popup, .overlay').click(function (){
-				$('.popup, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
-			});
-			
-// удаление карточки
-			$(document).on('click',".delete",function (e){
-				$(this).parent("div").remove();
-				
-			});
-// открытие/закрытие формы добавления новой карточки
-			$('#createNewTab').click(function (e){
-				$('.newTab, .overlay').css({'opacity': 1, 'visibility': 'visible'});
-				e.preventDefault();
-			});
-			$('.newTab .close_newTab, .overlay').click(function (){
-				$('.newTab, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
-			});
-
-// добавление новой карточки
-			var general = $('#general');
-			var temp = $('#card');
-			$('#addTab').click(function (e){
- 
-				e.preventDefault();
-
-				
-				var data = $('#myForm').serializeArray();
-				var values = {};
-
-				var file = $('#myForm').find('[type="file"]')[0].files[0];				
-				
-				$.each(data,function(){
-					values[this.name] = this.value;
-				});
-
-				var body = $(temp.html());
-				var option = $('#countryName option:selected').attr('rel');
-				body.addClass('all');
-				body.addClass(option);
-				// body.addClass(values.genreName);
-				body.find('h2').text(values.newTitle);
-
-				body.find('.country').text(values.countryName);
-				body.find('.genre').text(values.genreName);
-				body.find('.description').text(values.newDescription);
-
-				var reader = new FileReader();
-				    reader.onload = function (e) {
-				      
-				        body.find('.open_popup').attr("src", e.target.result);
-				        general.append(body);
-				        
-				    };
-
-				    if(file) 
-				    reader.readAsDataURL(file);
-
-				
-			});
-
-    });
-	</script>
+			    <div class="overlay"></div>
+				<div class="popup">
+					<div class="close_popup">x</div>
+				</div>
+				<div class="newTab">
+					<div class="close_newTab">x</div>
+					<form id="myForm">
+						<h2>Форма добавления фильма</h2>
+						<input type="text" name="newTitle" value='' placeholder=" Введите название фильма">
+						<input type="file" name="newImg">
+						<select name='countryName' id="countryName" value=''>
+							<option selected disabled>Выберите страну</option>
+							<option rel="irel">Страна: Ирландия</option>
+							<option rel="usa">Страна: США</option>
+							<option rel="norway">Страна: Норвегия</option>
+							<option rel="gb">Страна: Великобритания</option>
+							<option rel="germ">Страна: Германия</option>
+							<option rel="rus">Страна: Россия</option>
+						</select>
+						<select name='genreName' id="genreName" value=''>
+							<option selected disabled>Выберите жанр фильма</option>
+							<option rel="drama">Жанр: драма</option>
+							<option rel="comedy">Жанр: комедия</option>
+							<option rel="fantasy">Жанр: фэнтези</option>
+							<option rel="thriller">Жанр: боевик</option>
+						</select>
+						<textarea type="text" name="newDescription" placeholder="Введите описание фильма" /></textarea>
+						<input type="submit" id="addTab" name="addTab" value="Добавить">
+						<input type="reset" id="reset" name="delete" value="Очистить">
+					</form>
+				</div>
+				<div class="newSlide">
+					<div class="close_newSlide">x</div>
+					<form id="slidesForm">
+						<h2>Форма добавления слайда</h2>
+						<!-- <input type="file" name="img_first"> -->
+						<!-- <input type="file" name="img_second">
+						<input type="file" name="img_third">
+						<input type="file" name="img_fourth">
+						<input type="file" name="img_fifth">
+						<input type="file" name="img_sixth">
+						<input type="file" name="img_seventh"> -->
+						<input type="submit" id="addSlide" name="addSlide" value="Добавить">
+						<input type="reset" id="reset" name="delete" value="Очистить">
+					</form>
+				</div>
+		    </div>
+		</div>    
+	</div>    
+	<script type="text/javascript" src="myJScript.js"></script>
 </body>
 </html>
 

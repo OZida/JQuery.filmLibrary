@@ -113,6 +113,9 @@
 			"description": "Двое молодых российских журналистов по заданию редакции едут в далекий Сан-Франциско для того, чтобы сделать сюжет о Форт Россе, русском укреплении XIX века в Америке."
 		}];
 // наполнение карточек
+
+
+
 		function filler(general, temp , s) {
 			
 			s.forEach(function(item) {
@@ -132,8 +135,24 @@
             }
         filler(general, temp, source);
 					
-        $(function() {
+$(function(){
+
+			function eqHeight() {
+
+				var left = Number($(".left_content").css("height").slice(0,-2)),
+					right = Number($(".right_content").css("height").slice(0,-2));
+
+					if (left > right) {
+
+						$(".left_content").css("height",right);
+
+					} else {
+
+						$(".right_content").css("height",left);
+					}
+			}
 // анимация скрытия
+
 			var anim;
         	var elem;
         	function hideElements (elem, anim, speed) {
@@ -200,6 +219,7 @@
 
 	    	});	
 // открытие/закрытие попапа
+
           	var content_popup;
           	$('#general').on('click','img.open_popup', function (e){
 				$(content_popup).remove();
@@ -217,6 +237,7 @@
 // удаление карточки
 			$(document).on('click',".delete",function (e){
 				$(this).parent("div").remove();
+				eqHeight();
 				
 			});
 // открытие/закрытие формы добавления новой карточки
@@ -268,6 +289,8 @@
 				    if(file) 
 				    reader.readAsDataURL(file);
 				$('.newTab, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
+
+				eqHeight();
 			});
 // СЛАЙД
 			var width = 1113;
@@ -312,7 +335,7 @@
 		        	slideContainer.animate({'margin-left': '+='+width, opacity: 0, height: "hide"}, 500, function() {
 		                current--;
 		                if (current < 0 ) {
-		                    current = slides.length-1 && dots.length-1;
+		                    current = slides.length-1;
 		                    slideContainer.css({'margin-left': '-' + width*(slides.length-1) + 'px'});
 		                }
 		            dots.eq(current).addClass("active");
@@ -357,34 +380,38 @@
 		          	}
 			});
 			
-			// var width = 1113;
-		 //    var current = 0;
-
-		 //    var slider = $('.slider');
-		    // var slideContainer = $('.horisontal');
-		 //    var slides = $('.horisontal_block');
-		 //    slides.length = $('.horisontal_block').length;
-		 //    var dots = $('.dot');
-			
 			var new_slide;
-			$('#addSlide').on('click', function(){
-				// new_slide = $('.horisontal').find('.horisontal_block:last').clone(true); 
-				// console.log(new_slide);
-				// t = $(new_slide.html());
-				// // t.addClass('horisontal_block');
+			var new_dot;
 
-				// $('.horisontal_block:last').append(t);
-				// slides.length = $('.horisontal_block').length;
-				    
-				//     //   new_slide = $('.horisontal_block:last').clone(true)
-				//     //   console.log(new_slide)
-				//     //     body.prepend(new_slide);
-				//     // slides.length = $('.horisontal_block').length;
-				//     // slideContainer.append(t);
+			$('#slidesForm').on('submit', function(e){
 
+				new_slide = $('.horisontal').find('.horisontal_block:last').clone(true); 
+				$(new_slide).find('img').each(function(index, el){
+
+					var file = $('#slidesForm').find('[type="file"]')[index].files[0];
+					var reader = new FileReader();
+				    reader.onload = (function (el, index) {
+
+				        $(el).attr("src", this.result);
+				        
+				    }).bind(reader, el , index);
+
+				    if(file) 
+				    reader.readAsDataURL(file);
+				});
+				new_dot = $('.dot_container').find('.dot:last').clone(true);
+				console.log(new_dot);
+
+				$('.horisontal_block:last').after(new_slide);
+				slides = $('.horisontal_block');
+				$('.dot:last').after(new_dot);
+				dots = $('.dot');
+
+				e.preventDefault();
 			});
-			
 
 			
+});
+			
 
-    });
+   

@@ -1,9 +1,7 @@
 
 	body {
-		background: url('img/bg-ironman3.jpg');
-		background-repeat: no-repeat;
+		background: url('img/bg-ironman3.jpg') no-repeat center center fixed;
 		background-size: cover;
-		background-position-x: center;
 	}
 	#wrapper {
 		width: 1200px;
@@ -32,14 +30,14 @@
 	}
 	.horisontal {
 		background-color: #585858;
-		width: 6650px; 
+		width: 10000px; 
 		position: relative;
 	}
-	/*.horisontal:after {
+	.horisontal:after {
 		content: "";
 		display: block;
 		clear: both;
-	}*/
+	}
 	.horisontal img {
 		width: 139px;
 		float: left;
@@ -66,7 +64,7 @@
 		text-indent: -9999px;
 	}
 	.dot_container {
-		margin: 0 44%;
+		margin: 0 42%;
 	}
 	.dot{
 		cursor: pointer;

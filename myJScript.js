@@ -7,7 +7,7 @@
 
 			"classProduced": "irel",
 			"classCategories": "drama",
-			"title": "Моди",
+			"label": "Моди",
 			"src": "img/modi.jpg",
 			"country": "Страна: Ирландия",
 			"genre": "Жанр: Драма",
@@ -16,7 +16,7 @@
 		{
 			"classProduced": "usa",
 			"classCategories": "comedy",
-			"title": "Обдолбанный в Бруклине",
+			"label": "Обдолбанный в Бруклине",
 			"src": "img/obdolbannyyvbrukline.jpg",
 			"country": "Страна: США",
 			"genre": "Жанр: Комедия",
@@ -25,7 +25,7 @@
 		{
 			"classProduced": "usa",
 			"classCategories": "fantasy",
-			"title": "Северянин",
+			"label": "Северянин",
 			"src": "img/severyanin.jpg",
 			"country": "Страна: США",
 			"genre": "Жанр: Фэнтези",
@@ -34,7 +34,7 @@
 		{
 			"classProduced": "norway",
 			"classCategories": "thriller",
-			"title": "Биркебейнеры",
+			"label": "Биркебейнеры",
 			"src": "img/birkebeynery.jpg",
 			"country": "Страна: Норвегия",
 			"genre": "Жанр: Боевик",
@@ -43,7 +43,7 @@
 		{
 			"classProduced": "usa",
 			"classCategories": "thriller",
-			"title": "Ценный груз",
+			"label": "Ценный груз",
 			"src": "img/cenyygruz.jpg",
 			"country": "Страна: США",
 			"genre": "Жанр: Боевик",
@@ -52,7 +52,7 @@
 		{
 			"classProduced": "gb",
 			"classCategories": "thriller",
-			"title": "6 дней",
+			"label": "6 дней",
 			"src": "img/6dney.jpg",
 			"country": "Страна: Великобритания",
 			"genre": "Жанр: Боевик",
@@ -61,7 +61,7 @@
 		{
 			"classProduced": "gb",
 			"classCategories": "comedy",
-			"title": "Гиппопотам",
+			"label": "Гиппопотам",
 			"src": "img/gippopotam.jpg",
 			"country": "Страна: Великобритания",
 			"genre": "Жанр: Комедия",
@@ -70,7 +70,7 @@
 		{
 			"classProduced": "germ",
 			"classCategories": "comedy",
-			"title": "Безбашенный Ник",
+			"label": "Безбашенный Ник",
 			"src": "img/bezbashenyynik.jpg",
 			"country": "Страна: Германия",
 			"genre": "Жанр: Комедия",
@@ -79,7 +79,7 @@
 		{
 			"classProduced": "germ",
 			"classCategories": "fantasy",
-			"title": "Ловушка для привидения",
+			"label": "Ловушка для привидения",
 			"src": "img/lovushkadlyaprivedeniya.jpg",
 			"country": "Страна: Германия",
 			"genre": "Жанр: Фэнтези",
@@ -88,7 +88,7 @@
 		{
 			"classProduced": "germ",
 			"classCategories": "comedy",
-			"title": "Путь к Элладе",
+			"label": "Путь к Элладе",
 			"src": "img/putkellade.jpg",
 			"country": "Страна: Германия",
 			"genre": "Жанр: Комедия",
@@ -97,7 +97,7 @@
 		{
 			"classProduced": "rus",
 			"classCategories": "drama",
-			"title": "Милый Ханс, дорогой Петр",
+			"label": "Милый Ханс, дорогой Петр",
 			"src": "img/milyyhansdorogoypetr.jpg",
 			"country": "Страна: Россия",
 			"genre": "Жанр: Драма",
@@ -106,15 +106,13 @@
 		{
 			"classProduced": "rus",
 			"classCategories": "fantasy",
-			"title": "Форт Росс: В поисках приключений",
+			"label": "Форт Росс: В поисках приключений",
 			"src": "img/fortross.jpg",
 			"country": "Страна: Россия",
 			"genre": "Жанр: Фэнтези",
 			"description": "Двое молодых российских журналистов по заданию редакции едут в далекий Сан-Франциско для того, чтобы сделать сюжет о Форт Россе, русском укреплении XIX века в Америке."
 		}];
 // наполнение карточек
-
-
 
 		function filler(general, temp , s) {
 			
@@ -125,7 +123,7 @@
         			body.addClass('all');
         			body.addClass(item.classProduced);
         			body.addClass(item.classCategories);
-        			body.find('h2').text(item.title);
+        			body.find('h2').text(item.label);
                     body.find('.open_popup').attr('src', item.src);
                     body.find('.country').text(item.country);
                     body.find('.genre').text(item.genre);
@@ -134,23 +132,24 @@
                 });
             }
         filler(general, temp, source);
+
+// высота по самому высокому контенту
+        function setEqualHeight(columns) {
+			
+			var tallestcolumn = 0;
+			columns.each(function(){
+			
+				currentHeight = $(this).height();
+				if(currentHeight > tallestcolumn){
+					tallestcolumn = currentHeight;
+				} 
+			});
+			columns.height(tallestcolumn);
+			}
 					
 $(function(){
 
-			function eqHeight() {
-
-				var left = Number($(".left_content").css("height").slice(0,-2)),
-					right = Number($(".right_content").css("height").slice(0,-2));
-
-					if (left > right) {
-
-						$(".left_content").css("height",right);
-
-					} else {
-
-						$(".right_content").css("height",left);
-					}
-			}
+			setEqualHeight($(".content" > ".right_content"));
 // анимация скрытия
 
 			var anim;
@@ -187,8 +186,6 @@ $(function(){
 // фильтр	
 			var newSelection = "";
           	$("#categories a, #produced a").on('click', function(){
- 	
-                
 
 	            $("#categories a").removeClass("current");
 	            $("#categories a").removeClass("currentProduced");
@@ -223,6 +220,7 @@ $(function(){
           	var content_popup;
           	$('#general').on('click','img.open_popup', function (e){
 				$(content_popup).remove();
+				$(content).remove();
 				if( $(this).is("img.open_popup") ){
 					content_popup = $(this).parent('div').clone();
 					$('.popup').prepend(content_popup);
@@ -235,9 +233,8 @@ $(function(){
 			});
 			
 // удаление карточки
-			$(document).on('click',".delete",function (e){
+			$('#general').on('click',".delete",function (e){
 				$(this).parent("div").remove();
-				eqHeight();
 				
 			});
 // открытие/закрытие формы добавления новой карточки
@@ -290,7 +287,6 @@ $(function(){
 				    reader.readAsDataURL(file);
 				$('.newTab, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 
-				eqHeight();
 			});
 // СЛАЙД
 			var width = 1113;
@@ -299,7 +295,6 @@ $(function(){
 		    var slider = $('.slider');
 		    var slideContainer = $('.horisontal');
 		    var slides = $('.horisontal_block');
-		    
 		    var dots = $('.dot');
 		    
 		    var interval //= setInterval (startSlider, 5000);
@@ -308,12 +303,14 @@ $(function(){
 // Запуск слайдера
 		    function startSlider() {
 		        dots.eq(current).removeClass("active");
+		        slideContainer.stop();
 		        slideContainer.animate({'margin-left': '-='+width, opacity: 0, height: "hide"}, 500, function() {
 		        ++current;
 		            if (current > (slides.length-1 && dots.length-1)) {
 		                current = 0;
 		                slideContainer.css('margin-left', 0);
 		            }
+		            dots.stop();
 		            dots.eq(current).addClass("active");
 	                slideContainer.animate({opacity: 1, height: "show"}, 500 );
 		        });
@@ -322,22 +319,29 @@ $(function(){
 		    function pauseSlider() {
 		        clearInterval(interval);
 		    }
-// Запуск/остановка слайдера по наведению мышки
+// Запуск/остановка слайдера по наведению мышки (после mouseleave - фильтр по hover сбросится)
 		    slider.on('mouseleave', function() 
 		    	{interval = setInterval (startSlider, 5000)
+		    		newSelection = '.' + $(this).attr("rel");
+					$(this).attr("rel") == "all"
+		          	elem = $("#general div");
+			        showElements (elem, anim, speed);
 		    	});
+
 		    slider.on('mouseenter', pauseSlider);
 // Переключение вправо/влево
 		    $('.slider_next').on('click', startSlider);
 
 		    $('.slider_prev').on('click',function (){
 		   		dots.eq(current).removeClass("active");
+		   			slideContainer.stop();
 		        	slideContainer.animate({'margin-left': '+='+width, opacity: 0, height: "hide"}, 500, function() {
 		                current--;
 		                if (current < 0 ) {
 		                    current = slides.length-1;
 		                    slideContainer.css({'margin-left': '-' + width*(slides.length-1) + 'px'});
 		                }
+		            dots.stop();    
 		            dots.eq(current).addClass("active");
 	                slideContainer.animate({opacity: 1, height: "show"}, 500 );
 		            });
@@ -346,11 +350,13 @@ $(function(){
 		    $('.slider').on('click', '.dot', function(){
 		    	dots.eq(current).removeClass("active");
 		    	current = dots.index(this);
+		    	slideContainer.stop();
 		    	slideContainer.animate({'margin-left': '-' + width*current, opacity: 0, height: "hide"}, 500, function() {
 			    	if (current > slides.length-1) {
 			            current;
 			            slideContainer.css('margin-left', 0);
 			        }
+			        dots.stop();
 		            dots.eq(current).addClass("active");
 		            slideContainer.animate({opacity: 1, height: "show"}, 500 );
 				}); 	
@@ -361,14 +367,13 @@ $(function(){
 				$('.newSlide, .overlay').css({'opacity': 1, 'visibility': 'visible'});
 				e.preventDefault();
 			});
-			$('.newSlide .close_newSlide, .overlay').click(function (){
+			$('.newSlide .close_newSlide, .overlay').on('click', function (){
 				$('.newSlide, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 			});
 
 //фильтрация по наведении мышки на картинку слайда			
 			$('.horisontal_block img').hover(function(){
 				
-               	$( this ).find( "newSelection" ).remove();
                	newSelection = '.' + $(this).attr("rel");
 				elem = $("#general div").not(newSelection);
 		        hideElements(elem, anim, speed);
@@ -379,7 +384,7 @@ $(function(){
 		          		showElements (elem, anim, speed);
 		          	}
 			});
-			
+// добавление нового слайда
 			var new_slide;
 			var new_dot;
 
@@ -399,18 +404,115 @@ $(function(){
 				    if(file) 
 				    reader.readAsDataURL(file);
 				});
-				new_dot = $('.dot_container').find('.dot:last').clone(true);
-				console.log(new_dot);
 
 				$('.horisontal_block:last').after(new_slide);
 				slides = $('.horisontal_block');
+
+				new_dot = $('.dot_container').find('.dot:last').clone(true);
 				$('.dot:last').after(new_dot);
 				dots = $('.dot');
 
 				e.preventDefault();
+				$('.newSlide, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 			});
+// найти фильм по названию и показать его в попап
+			var popup = $('.popup');
+			var temp = $('#card');
+			var content;
+			$( "#search" ).autocomplete({
+			    minLength: 0,
+			    source: source,
+			    focus: function( event, ui ) {
+			        $( "#search" ).val( ui.item.label );
+			        return false;
+			    },
+			    select: function( event, ui ) {
+			    	$(content).remove();
+			    	$(content_popup).remove();
+			    	content = $(temp.html());
 
-			
+			        $( "#search" ).val( ui.item.label );
+			        content.find('h2').text( ui.item.label );
+			        content.find('.open_popup').attr('src', ui.item.src);
+                    content.find('.country').text(ui.item.country);
+                    content.find('.genre').text(ui.item.genre);
+                    content.find('.description').text(ui.item.description);
+			        popup.prepend(content);
+
+			        $('.popup, .overlay').css({'opacity': 1, 'visibility': 'visible'});
+			        return false;
+			    }
+			});
+// открыть/закрыть форму добавления плейлиста
+			$('#createNewPlayList').on('click', function (e){
+				$('.newPlayList, .overlay').css({'opacity': 1, 'visibility': 'visible'});
+				e.preventDefault();
+			});
+			$('.newPlayList .close_newPlayList, .overlay').on('click', function (){
+				$('.newPlayList, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
+			});
+// добавить список редактирования
+			var playList = $(".playList");
+			var catalog = $(".catalog");
+			var new_catalog;
+
+			$('#editList').on('click', function(e){
+
+				var myInput = $('#playListForm').find('#edit_newPlayList').val();
+				catalog.find('a').text(myInput);
+
+				$('.newPlayList, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
+				$(playList).css({'visibility': 'visible'});
+				e.preventDefault();
+			});
+// добавить и сохранить плейлист
+			$("#saveList").on('click', function(e){
+				var newInput = $('#playListForm').find('#save_newPlayList').val();
+				new_catalog = $(".playList").find('.catalog:first').clone(true);
+				new_catalog.find('a').text(newInput).append($(".delete:first").clone(true)
+			       .css('display', 'inline'));
+				catalog.after(new_catalog);
+				$('.newPlayList, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
+				e.preventDefault();
+			});
+// удаление лишних фильмов в плейлисте, плейлисты
+			$('.playList').on('click',".delete",function (){
+				$(this).parent("li").remove();
+				$(this).parent("a").remove();
+			});
+// свертывание плейлистов
+			$(".catalog").accordion({
+				active: false,
+				heightStyle: "content",
+		    	ollapsible: true
+      		});
+// перетаскивание карточек для плейлиста
+			$(".tab").draggable({
+			    helper: "clone",
+			    opacity:0.5,
+			    scroll: false
+			});
+// заполнение списка редактирования, сортировка в нем названий
+			$(".catalog ol").droppable({
+			    activeClass: "ui-state-default",
+			    hoverClass: "ui-state-hover",
+			    accept: ":not(.ui-sortable-helper)",
+			    tolerance:"touch",
+			    drop: function(event, ui) {
+			       $(this).find(".placeholder").remove();
+			       $("<li></li>").text( ui.draggable.find('h2').text())
+			       		.append($(".delete:first").clone(true)
+			       		.css('display', 'inline')).appendTo(this);
+			    }
+			}).sortable({
+			    items: "li:not(.placeholder)",
+			        sort: function() {
+			        $(this).removeClass( "ui-state-default" );
+			        }
+			    });   
+
+
+
 });
 			
 

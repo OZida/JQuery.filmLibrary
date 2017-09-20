@@ -1,13 +1,88 @@
 
 	body {
+		margin: 0;
 		background: url('img/bg-ironman3.jpg') no-repeat center center fixed;
 		background-size: cover;
 	}
 	#wrapper {
 		width: 1200px;
-		margin: 210px auto;
+		margin: 0 auto;
+		position: relative;
 	}
 	/********************header**************************/
+	.header_substrate {
+	    cursor: auto;
+	    position: relative;
+	    z-index: 5;
+	    width: 100%;
+	    background-color: #000;
+	    top: 0;
+	    right: 0;
+	    left: 0;
+	    height: 33px;
+	    border-bottom: 1px solid #000;
+	}
+	.top_menu {
+		position: absolute;
+		z-index: 10;
+		top: -238px;
+		left: 0;
+    	margin: 0 auto;
+    	width: 100%;
+	}
+	.logo {
+		float: left;
+		width: 33%;
+	}
+	.empty {
+		float: left;
+		width: 33%;
+	}
+	.search_panel {
+		float: right;
+		width: 33%;
+	}
+	#search, #reset_search {
+		float: right;
+		width: 170px;
+	    height: 22px;
+	    border: 2px solid #6B6B6B;
+        box-sizing: border-box;
+	    color: #e0dfdc;
+	    background-color: #505050;
+	}
+	#reset_search {
+		width: 25px;
+		margin-right: 30px;
+	}
+	#reset_search:hover {
+		color: red;
+	}
+	.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content {
+		display: none;
+	    position: absolute;
+		z-index: 10;
+		padding: 0;
+	    top: -2412px;
+	    left: 428.5px;
+	    width: 166px;
+	    border: 2px solid #878787;
+	}
+	.ui-widget {
+		list-style: none;
+		width: 160px;
+		left: 438px;
+	}
+	.ui-menu-item {
+		color: #e0dfdc;
+		background-color: #585858;
+		width: 167px;
+	}
+	.ui-state-focus {
+		color: red;
+		background-color: #585858;
+		cursor: pointer;
+	}
 	.slider {
 		width: 97%;
 		height: 275px;
@@ -17,6 +92,7 @@
 		border-radius: 10px;
 		margin-right: 30px;
 		margin-bottom: 25px;
+		margin-top: 210px;
 	}
 	.slider_container {
 		position: relative;
@@ -62,6 +138,7 @@
 		height: 33px;
 		display: block;
 		text-indent: -9999px;
+		cursor: pointer;
 	}
 	.dot_container {
 		margin: 0 42%;
@@ -70,7 +147,7 @@
 		cursor: pointer;
 		height: 13px;
 		width: 13px;
-		margin: 5px;
+		margin: 5px ;
 		background-color: #878787;
 		border-radius: 50%;
 		display: inline-block;
@@ -80,11 +157,21 @@
 		background-color: #e0dfdc;
 	}
 	/*******************content**************************/
+	.content {
+		background-color: #585858;
+		margin-right: 30px;
+		border: 2px solid #878787;
+		border-radius: 10px;
+	}
+	.content:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 	.left_content {
 		float: left;
 		width: 33%;
-		height: 1872px;
-		background-color: #585858;
+		min-height: 1000px;
 	}
 	#categories, #produced {
 		float: left;
@@ -138,7 +225,7 @@
 		color: #e0dfdc;
 		background-color: #2b2b2b;
 	}
-	#createNewTab, #createNewSlide {
+	#createNewTab, #createNewSlide, #createNewPlayList {
 		color: #e0dfdc;
 		padding: 8px;
 		margin: 10px 20px;
@@ -147,19 +234,52 @@
 		border-radius: 10px;
 		width: 90%;
 		font-size: 15px;
+		cursor: pointer;
+		line-height: 50%;
 	}
-
-	#createNewTab:hover, #createNewSlide:hover {
+	#createNewTab:hover, #createNewSlide:hover, #createNewPlayList:hover {
 		color: red;
 		border: 2px solid red;
 	}
-	
+	.playList {
+		visibility: hidden;
+		color: #e0dfdc;
+		margin: 10px 20px;
+		padding: 8px;
+		background-color: #2b2b2b;
+		width: 85%;
+		border: 2px solid #e0dfdc;
+		border-radius: 10px;
+	}
+	.catalog{
+		width: 80%;
+	}
+	.playList li {
+		line-height: 1.5em;
+	}
+	.playList li:hover {
+		color: red;
+	}
+	.ui-widget-content li {
+		cursor: pointer;
+	}
 	.right_content {
 		float: left;
-		width: 66%;
+		width: 67%;
+	}
+	.right_content:after {
+		content: "";
+		display: block;
+		clear: both;
 	}
 	#general {
 		width: 99%;
+
+	}
+	#general:after {
+		content: "";
+		display: block;
+		clear: both;
 	}
 	.tab {
         border: 1px solid #ccc;
@@ -205,7 +325,7 @@
 		z-index: 99999;
 		transition: opacity .5s;
 	}
-	.popup, .newTab, .newSlide {
+	.popup, .newTab, .newSlide, .newPlayList {
 		background-color: #e0dfdc;
 		display: inline-block;
 		left: 50%;
@@ -222,7 +342,7 @@
 		transition: opacity .5s, top .5s;
 		border-radius: 11px;
 	}
-	.popup .close_popup, .close_newTab, .close_newSlide {
+	.popup .close_popup, .close_newTab, .close_newSlide, .close_newPlayList {
 		width: 6px;
 		height: 17px;
 		position: absolute;
@@ -237,7 +357,7 @@
 		text-align: center;
 		box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
 	}
-	.popup .close_popup:hover, .close_newTab:hover, .close_newSlide:hover {
+	.popup .close_popup:hover, .close_newTab:hover, .close_newSlide:hover, .close_newPlayList:hover {
 		background-color: #2b2b2b;
 		border: 1px solid #ccc;
 	}
@@ -259,7 +379,7 @@
 		float: left;
 		margin: 0 10px 10px 10px;	
 	}
-	.popup .tab h2, .newTab h2, .newSlide h2 {
+	.popup .tab h2, .newTab h2, .newSlide h2, .newPlayList h2 {
 		color: #e0dfdc;
 		
 	}
@@ -273,7 +393,7 @@
 	.newTab {
 		z-index: 999991;
 	}
-	.newTab form, .newSlide form {
+	.newTab form, .newSlide form, .newPlayList form {
 		background: #2b2b2b;
 		width: 450px;
 		height: 450px;
@@ -281,7 +401,7 @@
 		border-radius: 12px;
 		margin: 25px 0 0 25px;
 	}
-	.newTab input, select, textarea, .newSlide input, select, textarea {
+	.newTab input, select, textarea, .newSlide input, .newPlayList input, button {
 		height: 30px;
 		width: 95%;
 		background-color: #2b2b2b;
@@ -292,13 +412,18 @@
 		height: 100px;
 		font-size: 16px;
 	}
-	#addTab, #reset, #addSlide {
+	#addTab, #reset, #addSlide, #saveList, #editList {
 		width: 45%;
 	}
 	.newSlide {
 		z-index: 999992;
 	}
-
+	.newPlayList {
+		z-index: 999993;
+	}
+	input[type='submit'], input[type='reset'] {
+		cursor: pointer;
+	}
 	
 
 	

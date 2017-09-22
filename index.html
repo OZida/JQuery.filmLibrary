@@ -3,10 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Little Isotop</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script src="jquery-ui.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="jquery.mobile-1.4.5.min.js"></script> -->
+<script src="jquery-ui.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.css"> -->
 	<link rel="stylesheet" href="style.css">
-	<!-- <link rel="stylesheet" href="jquery-ui.css"> -->
+	<link rel="stylesheet" media="only screen and (max-width: 640px), only screen and (max-device-width: 640px)" href="small-device.css">
 </head>
 <body>
 	<div class="header_substrate"></div>
@@ -115,11 +117,13 @@
 							<option value="fast">быстро</option>
 						</select>
 					</div>
-					<button id="createNewTab">Добавить новый фильм</button>
-					<button id="createNewSlide">Добавить новый слайд</button>
-					<button id="createNewPlayList">Создать плейлист</button>
+					<!-- <div class="ui-input-btn ui-btn"> -->
+					<button id="createNewTab" data-enhanced="true">Добавить новый фильм</button>
+					<button id="createNewSlide" data-enhanced="true">Добавить новый слайд</button>
+					<button id="createNewPlayList" data-enhanced="true">Создать плейлист</button>
+					<!-- </div> -->
 					<div class="playList">
-						<h2>Мои плей-листы</h2>
+						<h2>Мои плейлисты</h2>
 						<div class="catalog">
 							<h3><a></a></h3>
 							<div class="ui-widget-content">
@@ -203,6 +207,17 @@
 						</form>
 					</div>
 			    </div>
+		    </div>
+		    <div class="footer">
+		    	<div class="footer_text">
+			    	<p>Рады приветствовать всех любителей интересного и качественного кино на нашем сайте! Вы любите кинематограф также как мы? Постоянно следите за выходом новинок? Не проходит ни одного вечера, чтобы вы не посмотрели пару-тройку фильмов? Тогда вы пришли точно по адресу! В нашем кинотеатре можно <strong>смотреть фильмы онлайн бесплатно </strong>и без каких-либо ограничений!</p>
+			    	<p>Смотрите хорошее <strong>кино онлайн бесплатно </strong>, без регистрации и отправки смс даже не выходя из дома!</p>
+		    	</div>
+		    	<div class="footer_partners">
+		    		<a href="#"><img src="http://counter.yadro.ru/hit?t39.5;rhttp%3A//kinogo.club/5379-kibers-2015.html;s1920*1080*24;uhttp%3A//kinogo.club/;0.28371569686008513"></a>
+		    		<a href="#">Правообладателям</a>
+		    		<a href="#">Контакты</a>
+		    	</div>
 		    </div>
 		</div>    
 	</div>    

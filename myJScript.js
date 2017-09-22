@@ -456,7 +456,7 @@ $(function(){
 			var catalog = $(".catalog");
 			var new_catalog;
 
-			$('#editList').on('click', function(e){
+			$('#editList').one('click', function(e){
 
 				var myInput = $('#playListForm').find('#edit_newPlayList').val();
 				catalog.find('a').text(myInput);

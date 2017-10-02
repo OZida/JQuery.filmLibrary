@@ -1,10 +1,7 @@
-		
-
 		var general = $('#general');
 		var temp = $('#card');
 		var source = [
 		{
-
 			"classProduced": "irel",
 			"classCategories": "drama",
 			"label": "Моди",
@@ -74,7 +71,7 @@
 			"src": "img/bezbashenyynik.jpg",
 			"country": "Страна: Германия",
 			"genre": "Жанр: Комедия",
-			"description": "Отважного и совершенно безбашенного полицейского Ника Чиллера отстраняют от службы после очередной его глупой выходки. Сам герой хоть и не доволен таким решением руководства, но всё же пытается найти в своём незапланированном отпуске положительные стороны."
+			"description": "Отважного и совершенно безбашенного полицейского Ника Чиллера отстраняют от службы после очередной его глупой выходки. Сам герой хоть и не доволен таким решением руководства, но всё же пытается найти в своём отпуске положительные стороны."
 		},
 		{
 			"classProduced": "germ",
@@ -113,13 +110,10 @@
 			"description": "Двое молодых российских журналистов по заданию редакции едут в далекий Сан-Франциско для того, чтобы сделать сюжет о Форт Россе, русском укреплении XIX века в Америке."
 		}];
 // наполнение карточек
-
 		function filler(general, temp , s) {
-			
 			s.forEach(function(item) {
-
             		var body = $(temp.html());
-            		
+           		
         			body.addClass('all');
         			body.addClass(item.classProduced);
         			body.addClass(item.classCategories);
@@ -132,13 +126,10 @@
                 });
             }
         filler(general, temp, source);
-
 // высота по самому высокому контенту
         function setEqualHeight(columns) {
-			
 			var tallestcolumn = 0;
 			columns.each(function(){
-			
 				currentHeight = $(this).height();
 				if(currentHeight > tallestcolumn){
 					tallestcolumn = currentHeight;
@@ -146,24 +137,24 @@
 			});
 			columns.height(tallestcolumn);
 			}
-					
 $(function(){
-
 			setEqualHeight($(".content" > ".right_content"));
 // анимация скрытия
-
 			var anim;
         	var elem;
         	function hideElements (elem, anim, speed) {
         		var speed = $('#speed').prop('value');
         		var anim = $('#animation_selection').prop('value');
         		if (anim =='slide'){
+        			$(elem).stop();
         			$(elem).slideUp(speed);
         		}
         		else if (anim =='hide'){
+        			$(elem).stop();
         			$(elem).hide(speed);
         		}
         		else {
+        			$(elem).stop();
         			$(elem).fadeOut(speed);
         		}	
         	}
@@ -173,20 +164,21 @@ $(function(){
         		var speed = $('#speed').prop('value');
         		var anim = $('#animation_selection').prop('value');
         		if (anim =='slide'){
+        			$(elem).stop();
         			$(elem).slideDown(speed);
         		}	
         		else if (anim =='hide'){
+        			$(elem).stop();
 		          	$(elem).show(speed);
 		        }
         		else {
+        			$(elem).stop();
         			$(elem).fadeIn(speed);
 		        }
         	}	
-		        	
 // фильтр	
 			var newSelection = "";
           	$("#categories a, #produced a").on('click', function(){
-
 	            $("#categories a").removeClass("current");
 	            $("#categories a").removeClass("currentProduced");
 	          	$(this).addClass("current");
@@ -196,15 +188,13 @@ $(function(){
 	          	$(this).addClass("currentProduced");
 
 	          	newSelection = '.' + $(this).attr("rel");
-
-	          	
-	          	$("#general div").filter(function( index ) {
-		          	return $( this ).attr( "class" ) === "current currentProduced" || "currentProduced";
+	          	$("#general div").filter(function(index) {
+		          	return $(this).attr("class") === "current currentProduced" || "currentProduced";
 		        });
 		        elem = $("#general div").not(newSelection);
 		        hideElements(elem, anim, speed);
 
-					if ($( this ).attr( "class" ) == "current currentProduced") {
+					if ($(this).attr("class") == "current currentProduced") {
 		          		newSelection += '.' + $(this).attr("rel");
 		          		elem = newSelection;
 		          		showElements (elem, anim, speed);
@@ -213,10 +203,8 @@ $(function(){
 		          		elem = $("#general div");
 			        	showElements (elem, anim, speed);
 			        }
-
 	    	});	
 // открытие/закрытие попапа
-
           	var content_popup;
           	$('#general').on('click','img.open_popup', function (e){
 				$(content_popup).remove();
@@ -231,11 +219,9 @@ $(function(){
 			$('.popup .close_popup, .overlay').click(function (){
 				$('.popup, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 			});
-			
 // удаление карточки
-			$('#general').on('click',".delete",function (e){
+			$('#general').on('click',".delete",function (){
 				$(this).parent("div").remove();
-				
 			});
 // открытие/закрытие формы добавления новой карточки
 			$('#createNewTab').on('click', function (e){
@@ -245,7 +231,6 @@ $(function(){
 			$('.newTab .close_newTab, .overlay').click(function (){
 				$('.newTab, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 			});
-
 // добавление новой карточки
 			var general = $('#general');
 			var temp = $('#card');
@@ -280,13 +265,11 @@ $(function(){
 				      
 				        body.find('.open_popup').attr("src", e.target.result);
 				        general.append(body);
-				        
 				    };
 
 				    if(file) 
 				    reader.readAsDataURL(file);
 				$('.newTab, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
-
 			});
 // СЛАЙД
 			var width = 1113;
@@ -319,7 +302,7 @@ $(function(){
 		    function pauseSlider() {
 		        clearInterval(interval);
 		    }
-// Запуск/остановка слайдера по наведению мышки (после mouseleave - фильтр по hover сбросится)
+// Запуск слайдера по наведению мышки (если был hover, после mouseleave - фильтр по hover сбросится)
 		    slider.on('mouseleave', function() 
 		    	{interval = setInterval (startSlider, 5000)
 		    		newSelection = '.' + $(this).attr("rel");
@@ -327,7 +310,7 @@ $(function(){
 		          	elem = $("#general div");
 			        showElements (elem, anim, speed);
 		    	});
-
+// остановка слайдера по наведению мышки
 		    slider.on('mouseenter', pauseSlider);
 // Переключение вправо/влево
 		    $('.slider_next').on('click', startSlider);
@@ -361,7 +344,6 @@ $(function(){
 		            slideContainer.animate({opacity: 1, height: "show"}, 500 );
 				}); 	
 		    });
-
 // открытие/закрытие формы добавления нового слайдера
 			$('#createNewSlide').on('click', function (e){
 				$('.newSlide, .overlay').css({'opacity': 1, 'visibility': 'visible'});
@@ -370,15 +352,13 @@ $(function(){
 			$('.newSlide .close_newSlide, .overlay').on('click', function (){
 				$('.newSlide, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 			});
-
-//фильтрация по наведении мышки на картинку слайда			
+//фильтрация по наведении мышки (hover) на картинку слайда		
 			$('.horisontal_block img').hover(function(){
-				
                	newSelection = '.' + $(this).attr("rel");
 				elem = $("#general div").not(newSelection);
 		        hideElements(elem, anim, speed);
-		        
-		        if ($( this ).attr( "rel" )) {
+   
+		        if ($(this).attr("rel")) {
 		          		newSelection += '.' + $(this).attr("rel");
 		          		elem = newSelection;
 		          		showElements (elem, anim, speed);
@@ -396,9 +376,7 @@ $(function(){
 					var file = $('#slidesForm').find('[type="file"]')[index].files[0];
 					var reader = new FileReader();
 				    reader.onload = (function (el, index) {
-
 				        $(el).attr("src", this.result);
-				        
 				    }).bind(reader, el , index);
 
 				    if(file) 
@@ -407,7 +385,6 @@ $(function(){
 
 				$('.horisontal_block:last').after(new_slide);
 				slides = $('.horisontal_block');
-
 				new_dot = $('.dot_container').find('.dot:last').clone(true);
 				$('.dot:last').after(new_dot);
 				dots = $('.dot');
@@ -419,19 +396,19 @@ $(function(){
 			var popup = $('.popup');
 			var temp = $('#card');
 			var content;
-			$( "#search" ).autocomplete({
+			$("#search").autocomplete({
 			    minLength: 0,
 			    source: source,
-			    focus: function( event, ui ) {
-			        $( "#search" ).val( ui.item.label );
+			    focus: function(event, ui) {
+			        $("#search").val(ui.item.label);
 			        return false;
 			    },
-			    select: function( event, ui ) {
+			    select: function(event, ui) {
 			    	$(content).remove();
 			    	$(content_popup).remove();
 			    	content = $(temp.html());
 
-			        $( "#search" ).val( ui.item.label );
+			        $("#search").val( ui.item.label );
 			        content.find('h2').text( ui.item.label );
 			        content.find('.open_popup').attr('src', ui.item.src);
                     content.find('.country').text(ui.item.country);
@@ -439,12 +416,13 @@ $(function(){
                     content.find('.description').text(ui.item.description);
 			        popup.prepend(content);
 
+			        $("#search").val('');
 			        $('.popup, .overlay').css({'opacity': 1, 'visibility': 'visible'});
 			        return false;
 			    }
 			});
 // открыть/закрыть форму добавления плейлиста
-			$('#createNewPlayList').on('click', function (e){
+			$('#addPlayList').on('click', function (e){
 				$('.newPlayList, .overlay').css({'opacity': 1, 'visibility': 'visible'});
 				e.preventDefault();
 			});
@@ -452,40 +430,60 @@ $(function(){
 				$('.newPlayList, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 			});
 // добавить список редактирования
+			var editList = $(".editList");
 			var playList = $(".playList");
+			var editCatalog = $(".editCatalog");
 			var catalog = $(".catalog");
 			var new_catalog;
 
-			$('#editList').one('click', function(e){
-
-				var myInput = $('#playListForm').find('#edit_newPlayList').val();
-				catalog.find('a').text(myInput);
-
-				$('.newPlayList, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
-				$(playList).css({'visibility': 'visible'});
-				e.preventDefault();
+			$('#createEditList').one('click', function(){
+				$(editList).css({'visibility': 'visible'});
 			});
 // добавить и сохранить плейлист
 			$("#saveList").on('click', function(e){
 				var newInput = $('#playListForm').find('#save_newPlayList').val();
-				new_catalog = $(".playList").find('.catalog:first').clone(true);
-				new_catalog.find('a').text(newInput).append($(".delete:first").clone(true)
+				if (newInput == '') {
+						alert('Введите название плейлиста');
+						$('#save_newPlayList').css('border', '2px solid red');
+						return false;
+					}
+				$('#save_newPlayList').css('border', '2px solid #e0dfdc');	
+				$(playList).css({'visibility': 'visible'});		
+				new_catalog = $(".editList").find('.editCatalog').clone(true);
+				$(new_catalog).removeClass('editCatalog');
+				$(new_catalog).addClass('catalog');
+				new_catalog.find('h3').text(newInput).append($(".delete:first").clone()
 			       .css('display', 'inline'));
-				catalog.after(new_catalog);
+				$(".playList h2").after(new_catalog);
 				$('.newPlayList, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 				e.preventDefault();
 			});
 // удаление лишних фильмов в плейлисте, плейлисты
-			$('.playList').on('click',".delete",function (){
+			$('.editList, .playList').on('click',"li .delete",function (){
 				$(this).parent("li").remove();
-				$(this).parent("a").remove();
+			});
+			$('.playList').on('click',"h3 .delete",function (){
+				$(this).closest('.catalog').remove();
 			});
 // свертывание плейлистов
-			$(".catalog").accordion({
+			$(".editCatalog").accordion({
 				active: false,
 				heightStyle: "content",
-		    	ollapsible: true
+		    	collapsible: true
       		});
+      		$(".playList").accordion({
+      			header: ".catalog > h3",
+				active: false,
+				heightStyle: "content",
+		    	collapsible: true
+      		}).sortable({
+		        axis: "y",
+		        items: ".catalog",
+		        stop: function( event, ui ) {
+		          ui.item.children("h3").triggerHandler("focusout");
+		          $(this).accordion("refresh");
+		        }
+		      });
 // перетаскивание карточек для плейлиста
 			$(".tab").draggable({
 			    helper: "clone",
@@ -493,7 +491,7 @@ $(function(){
 			    scroll: false
 			});
 // заполнение списка редактирования, сортировка в нем названий
-			$(".catalog ol").droppable({
+			$(".editCatalog ol").droppable({
 			    activeClass: "ui-state-default",
 			    hoverClass: "ui-state-hover",
 			    accept: ":not(.ui-sortable-helper)",
@@ -507,12 +505,9 @@ $(function(){
 			}).sortable({
 			    items: "li:not(.placeholder)",
 			        sort: function() {
-			        $(this).removeClass( "ui-state-default" );
+			        $(this).removeClass("ui-state-default");
 			        }
 			    });   
-
-
-
 });
 			
 

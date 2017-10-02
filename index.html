@@ -4,11 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Little Isotop</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="jquery.mobile-1.4.5.min.js"></script> -->
 <script src="jquery-ui.js"></script>
-	<!-- <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.css"> -->
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" media="only screen and (max-width: 640px), only screen and (max-device-width: 640px)" href="small-device.css">
+	<link rel="stylesheet" media="only screen and (max-width: 640px), only screen and (max-device-width: 640px)" href="style-small_device.css">
 </head>
 <body>
 	<div class="header_substrate"></div>
@@ -28,10 +26,9 @@
 			</div>
 			<div class="slider">
 				<div class="slider_container">
-				<a class='slider_prev'></a>
+				<a class='slider_prev'>&#10094</a>
 					<div class="horisontal">
-						<!-- 1 -->
-						<div class="horisontal_block">
+						<div class="horisontal_block"> <!-- 1 -->
 							<img rel='fantasy' src="img/obitelzlaposlednyaaglava.jpg" alt="">
 							<img rel='thriller' src="img/zvezdnyevoyny.jpg" alt="">
 							<img rel='drama' src="img/velikayastena.jpg" alt="">
@@ -77,150 +74,150 @@
 							<img rel='fantasy' src="img/dazdravstvuetzecar.jpg" alt="">
 						</div>	
 					</div>
-					<a class='slider_next'></a>
-					</div>
-					<div class="dot_container">
-						<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-					</div>
+					<a class='slider_next'>&#10095</a>
+				</div>
+				<div class="dot_container">
+					<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 				</div>
 			</div>
-			<div class="content">
-				<div class="left_content">
-					<div id="categories" class="all drama comedy fantasy thriller">
-					    <h3>Категории</h3>	
-					    <a rel="drama">Драма</a><br>
-					    <a rel="comedy">Комедия</a><br>
-					    <a rel="fantasy">Фэнтези</a><br>
-					    <a rel="thriller">Боевик</a><br><br>
-					    <a rel="all" id='button_all' class="current currentProduced">Все фильмы</a>
-				    </div>
-					<div id="produced" class="all irel usa norway gb germ ru">
-						<h3>Страна</h3>
-						<a rel="irel">Ирландия</a><br>
-					    <a rel="usa">США</a><br>
-					    <a rel="norway">Норвегия</a><br>
-					    <a rel="gb">Великобритания</a><br>
-					    <a rel="germ">Германия</a><br>
-					    <a rel="rus">Россия</a><br>
-					</div>
-					<div class="animation_settings">
-						<select id="animation_selection">
-							<option selected disabled>Выберите анимацию</option>
-							<option value="slide">затухнуть/проявить</option>
-							<option value="fade">развернуть/свернуть</option>
-							<option value="hide">скрыть/показать</option>
-						</select>
-						<select id="speed">
-							<option selected disabled>Выберите скорость</option>
-							<option value="slow">медленно</option>
-							<option value="normal">нормально</option>
-							<option value="fast">быстро</option>
-						</select>
-					</div>
-					<!-- <div class="ui-input-btn ui-btn"> -->
-					<button id="createNewTab" data-enhanced="true">Добавить новый фильм</button>
-					<button id="createNewSlide" data-enhanced="true">Добавить новый слайд</button>
-					<button id="createNewPlayList" data-enhanced="true">Создать плейлист</button>
-					<!-- </div> -->
-					<div class="playList">
-						<h2>Мои плейлисты</h2>
-						<div class="catalog">
-							<h3><a></a></h3>
-							<div class="ui-widget-content">
-							    <ol>
-							      <li class="placeholder">Перетащите сюда фильм</li>
-							    </ol>
-							</div>
+		</div>
+		<div class="content">
+			<div class="left_content">
+				<div id="categories" class="all drama comedy fantasy thriller">
+				    <h3>Категории</h3>	
+				    <a rel="drama">Драма</a><br>
+				    <a rel="comedy">Комедия</a><br>
+				    <a rel="fantasy">Фэнтези</a><br>
+				    <a rel="thriller">Боевик</a><br><br>
+				    <a rel="all" id='button_all' class="current currentProduced">Все фильмы</a>
+				</div>
+				<div id="produced" class="all irel usa norway gb germ ru">
+					<h3>Страна</h3>
+					<a rel="irel">Ирландия</a><br>
+				    <a rel="usa">США</a><br>
+				    <a rel="norway">Норвегия</a><br>
+				    <a rel="gb">Великобритания</a><br>
+				    <a rel="germ">Германия</a><br>
+				    <a rel="rus">Россия</a><br>
+				</div>
+				<div class="animation_settings">
+					<select id="animation_selection">
+						<option selected disabled>Выберите анимацию</option>
+						<option value="slide">затухнуть/проявить</option>
+						<option value="fade">развернуть/свернуть</option>
+						<option value="hide">скрыть/показать</option>
+					</select>
+					<select id="speed">
+						<option selected disabled>Выберите скорость</option>
+						<option value="slow">медленно</option>
+						<option value="normal">нормально</option>
+						<option value="fast">быстро</option>
+					</select>
+				</div>
+				<button id="createNewTab" data-enhanced="true">Добавить новый фильм</button>
+				<button id="createNewSlide" data-enhanced="true">Добавить новый слайд</button>
+				<button id="createEditList" data-enhanced="true">Создать плейлист</button>
+				<div class="editList">
+					<div class="editCatalog">
+						<h3><a>Нажмите для редактирования</a></h3>
+						<div class="ui-widget-content">
+						    <ol>
+						      <li class="placeholder">Перетащите сюда фильм</li>
+						    </ol>
 						</div>
-					</div>	
-			    </div>
-			    <div class="right_content">
-				    <div id="general">
 					</div>
+					<button id="addPlayList">Добавить плейлист</button>
+				</div>
+				<div class="playList">
+					<h2>Мои плейлисты</h2>
+				</div>
+			</div>	
+			<div class="right_content">
+				<div id="general">
+				</div>
 					
-					<template id="card">
-				        <div class="tab">
-				        	<img class='delete' src="img/krectik.png" title="Удалить элемент">
-					        <h2></h2>
-					        <img class="open_popup">
-					        <p class="country"></p>
-						    <p class="genre"></p>
-						    <p class="description"></p>
-				      	</div>
-				    </template>
+				<template id="card">
+				    <div class="tab">
+				      	<img class='delete' src="img/krectik.png" title="Удалить элемент">
+				        <h2></h2>
+				        <img class="open_popup">
+				        <p class="country"></p>
+					    <p class="genre"></p>
+					    <p class="description"></p>
+				  	</div>
+				</template>
 						
-				    <div class="overlay"></div>
-					<div class="popup">
-						<div class="close_popup">x</div>
-					</div>
-					<div class="newTab">
-						<div class="close_newTab">x</div>
-						<form id="myForm">
-							<h2>Форма добавления фильма</h2>
-							<input type="text" name="newTitle" value='' placeholder=" Введите название фильма">
-							<input type="file" name="newImg">
-							<select name='countryName' id="countryName" value=''>
-								<option selected disabled>Выберите страну</option>
-								<option rel="irel">Страна: Ирландия</option>
-								<option rel="usa">Страна: США</option>
-								<option rel="norway">Страна: Норвегия</option>
-								<option rel="gb">Страна: Великобритания</option>
-								<option rel="germ">Страна: Германия</option>
-								<option rel="rus">Страна: Россия</option>
-							</select>
-							<select name='genreName' id="genreName" value=''>
-								<option selected disabled>Выберите жанр фильма</option>
-								<option rel="drama">Жанр: драма</option>
-								<option rel="comedy">Жанр: комедия</option>
-								<option rel="fantasy">Жанр: фэнтези</option>
-								<option rel="thriller">Жанр: боевик</option>
-							</select>
-							<textarea type="text" name="newDescription" placeholder="Введите описание фильма"></textarea>
-							<input type="submit" id="addTab" name="addTab" value="Добавить">
-							<input type="reset" id="reset" name="delete" value="Очистить">
+				<div class="overlay"></div>
+				<div class="popup">
+					<div class="close_popup">x</div>
+				</div>
+				<div class="newTab">
+					<div class="close_newTab">x</div>
+					<form id="myForm">
+						<h2>Форма добавления фильма</h2>
+						<input type="text" name="newTitle" value='' placeholder=" ведите название фильма">
+						<input type="file" name="newImg">
+						<select name='countryName' id="countryName" value=''>
+							<option selected disabled>Выберите страну</option>
+							<option rel="irel">Страна: Ирландия</option>
+							<option rel="usa">Страна: США</option>
+							<option rel="norway">Страна: Норвегия</option>
+							<option rel="gb">Страна: Великобритания</option>
+							<option rel="germ">Страна: Германия</option>
+							<option rel="rus">Страна: Россия</option>
+						</select>
+						<select name='genreName' id="genreName" value=''>
+							<option selected disabled>Выберите жанр фильма</option>
+							<option rel="drama">Жанр: драма</option>
+							<option rel="comedy">Жанр: комедия</option>
+							<option rel="fantasy">Жанр: фэнтези</option>
+							<option rel="thriller">Жанр: боевик</option>
+						</select>
+						<textarea type="text" name="newDescription" placeholder="Введите описание фильма"></textarea>
+						<input type="submit" id="addTab" name="addTab" value="Добавить">
+						<input type="reset" id="reset" name="delete" value="Очистить">
+					</form>
+				</div>
+				<div class="newSlide">
+					<div class="close_newSlide">x</div>
+					<form id="slidesForm">
+						<h2>Форма добавления слайда</h2>
+						<input type="file" name="img_first">
+						<input type="file" name="img_second">
+						<input type="file" name="img_third">
+						<input type="file" name="img_fourth">
+						<input type="file" name="img_fifth">
+						<input type="file" name="img_sixth">
+						<input type="file" name="img_seventh">
+						<input type="submit" id="addSlide" name="addSlide" value="Добавить">
+						<input type="reset" id="reset" name="delete" value="Очистить">
 						</form>
-					</div>
-					<div class="newSlide">
-						<div class="close_newSlide">x</div>
-						<form id="slidesForm">
-							<h2>Форма добавления слайда</h2>
-							<input type="file" name="img_first">
-							<input type="file" name="img_second">
-							<input type="file" name="img_third">
-							<input type="file" name="img_fourth">
-							<input type="file" name="img_fifth">
-							<input type="file" name="img_sixth">
-							<input type="file" name="img_seventh">
-							<input type="submit" id="addSlide" name="addSlide" value="Добавить">
-							<input type="reset" id="reset" name="delete" value="Очистить">
-						</form>
-					</div>
-					<div class="newPlayList">
-						<div class="close_newPlayList">x</div>
-						<form id="playListForm">
-							<h2>Форма добавления плейлиста</h2>
-							<input type="text" id="edit_newPlayList" value="Список редактирования" readonly="readonly">
-							<button id="editList">Перейти к редактированию</button>
-							<input type="text" id="save_newPlayList" placeholder="Укажите название плейлиста">
-							<button id="saveList">Сохранить плейлист</button>
-							<input type="reset" id="reset" name="delete" value="Очистить">
-						</form>
-					</div>
-			    </div>
+				</div>
+				<div class="newPlayList">
+					<div class="close_newPlayList">x</div>
+					<form id="playListForm">
+						<h2>Форма добавления плейлиста</h2>
+							<!-- <input type="text" id="edit_newPlayList" value="Список редактирования" readonly="readonly">
+							<button id="editList">Перейти к редактированию</button> -->
+						<input type="text" id="save_newPlayList" placeholder="Укажите название плейлиста">
+						<button id="saveList">Сохранить плейлист</button>
+						<input type="reset" id="reset" name="delete" value="Очистить">
+					</form>
+				</div>
+			</div>
+		</div> 
+		<div class="footer">
+		    <div class="footer_text">
+			   	<p>Рады приветствовать всех любителей интересного и качественного кино на нашем сайте! Вы любите кинематограф также как мы? Постоянно следите за выходом новинок? Не проходит ни одного вечера, чтобы вы не посмотрели пару-тройку фильмов? Тогда вы пришли точно по адресу! В нашем кинотеатре можно <strong>смотреть фильмы онлайн бесплатно </strong>и без каких-либо ограничений!</p>
+			   	<p>Смотрите хорошее <strong>кино онлайн бесплатно </strong>, без регистрации и отправки смс даже не выходя из дома!</p>
 		    </div>
-		    <div class="footer">
-		    	<div class="footer_text">
-			    	<p>Рады приветствовать всех любителей интересного и качественного кино на нашем сайте! Вы любите кинематограф также как мы? Постоянно следите за выходом новинок? Не проходит ни одного вечера, чтобы вы не посмотрели пару-тройку фильмов? Тогда вы пришли точно по адресу! В нашем кинотеатре можно <strong>смотреть фильмы онлайн бесплатно </strong>и без каких-либо ограничений!</p>
-			    	<p>Смотрите хорошее <strong>кино онлайн бесплатно </strong>, без регистрации и отправки смс даже не выходя из дома!</p>
-		    	</div>
-		    	<div class="footer_partners">
-		    		<a href="#"><img src="http://counter.yadro.ru/hit?t39.5;rhttp%3A//kinogo.club/5379-kibers-2015.html;s1920*1080*24;uhttp%3A//kinogo.club/;0.28371569686008513"></a>
-		    		<a href="#">Правообладателям</a>
-		    		<a href="#">Контакты</a>
-		    	</div>
+		    <div class="footer_partners">
+		    	<a href="#"><img src="http://counter.yadro.ru/hit?t39.5;rhttp%3A//kinogo.club/5379-kibers-2015.html;s1920*1080*24;uhttp%3A//kinogo.club/;0.28371569686008513"></a>
+		    	<a href="#">Правообладателям</a>
+		    	<a href="#">Контакты</a>
 		    </div>
-		</div>    
-	</div>    
+		</div>
+	</div>
 	<script type="text/javascript" src="myJScript.js"></script>
 </body>
 </html>
